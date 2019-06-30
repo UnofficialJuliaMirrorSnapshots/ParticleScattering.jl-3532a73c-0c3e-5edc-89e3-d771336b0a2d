@@ -15,7 +15,7 @@ R = 0.1\lambda_0, d = 0.05\lambda_0,
 ```
 
 which is supplied by `rounded_star`. For now, we discretize the shape with `N=260`
-nodes and `P=10` cylindrical harmonics &ndash; for more information on the
+nodes and `P=10` cylindrical harmonics – for more information on the
 relationship between these parameters and the various resulting errors, see
 [Choosing Minimal N and P](@ref minimalNP).
 
@@ -50,7 +50,7 @@ appropriate method:
 
 ```julia
 #calculate field on the x-axis passing through the particle
-points = [linspace(-0.5λ0, 0.5λ0, 200)  zeros(200)]
+points = [range(-0.5λ0, stop=0.5λ0, length=200)  zeros(200)]
 u = calc_near_field(k0, kin, P, sp, points, pw)
 ```
 
@@ -99,7 +99,7 @@ sp = ScatteringProblem(shapes, ids, centers, φs)
 Looking at the ``4 \times 2`` array `centers`, the coordinates of the `m`-th
 shape are given by `centers[m,:]`, and its rotation angle is stored in `φs[m]`.
 Likewise, `ids[m]` tells us if the shape has parametrization `shapes[1]`
- &ndash; in this case a rounded star &ndash; or `shapes[2]`, a squircle. It is
+ – in this case a rounded star – or `shapes[2]`, a squircle. It is
  imperative that the order of these arrays remain consistent for the solver
 to correctly precompute the scattering matrix transformation for each particle.
 Furthermore, `shapes` should not contain copies of the same shape, as that will
